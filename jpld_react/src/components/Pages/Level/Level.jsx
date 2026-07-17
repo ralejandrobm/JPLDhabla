@@ -218,7 +218,10 @@ export const Level = () => {
   return (
 
   <div className={`background-anim-container ${animateIntro ? "start" : ""}`}>
-      <BackgroundSVG className="background-svg background-pan-zoom" />
+      <BackgroundSVG
+        className="background-svg background-pan-zoom"
+        preserveAspectRatio="xMidYMid slice"
+      />
 
       <SpeechResultPopup
       isVisible={showPopup}
