@@ -89,7 +89,13 @@
   }
 
   .btn-overlay {
-    flex: 0 1 100px;
+    flex: 1 1 0;
+    min-width: 56px;
+    max-width: 90px;
+  }
+
+  .overlay-buttons {
+    gap: 0.6rem;
   }
 
   .btn-overlay.listening {
