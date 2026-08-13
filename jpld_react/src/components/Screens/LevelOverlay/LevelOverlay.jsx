@@ -23,6 +23,7 @@ import { ReactComponent as Repeat } from "../../../assets/repeat.svg";
 import { useAppContext, setScene } from "../../../context/DirectoryProvider.jsx";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { useClipboardCustom } from "../../../hooks/copyHook.jsx";
+import { useSyllableTimestamps } from "../../../hooks/useSyllableTimestamps.js";
 import { SpeechResultPopup } from "../PopUp/SpeechResultPopup.jsx";
 
 // Audio files from public folder
@@ -38,6 +39,7 @@ const audioSets = {
 
 export const LevelOverlay = ({ text, onResult }) => {
   const { state, dispatch } = useAppContext();
+  const { getPhraseData } = useSyllableTimestamps();
   const [activeSyllable, setActiveSyllable] = useState(null);
   const [textToCopy, setTextToCopy] = useState("");
   const [isCopied, copy] = useClipboardCustom();
@@ -97,39 +99,120 @@ const stopListening = () => {
       .catch((err) => console.error("Audio playback failed:", err));
   };
 
-  // --- 🗣️ Repeat syllables with animation ---
+  // --- 🗣️ Legacy fallback: one audio file per syllable ---
+  const playLegacySyllables = async () => {
+    const { level, difficulty, scene, settings } = state;
+    const syllables = text.split("-").map((s) => s.trim()).filter(Boolean);
+
+    for (let i = 0; i < syllables.length; i++) {
+      const filename = `lvl${level}_sub${difficulty - 1}_w${scene}_s${i}.mp3`;
+      const filepath = `/audios/${filename}`;
+      const audio = new Audio(filepath);
+      audio.volume = settings.volume ?? 0.5;
+
+      console.log(`🔊 Playing syllable ${i + 1}/${syllables.length}: ${filepath}`);
+
+      // Trigger animation
+      setActiveSyllable(i);
+
+      // Wait for audio to finish
+      await new Promise((resolve, reject) => {
+        audio.onended = () => {
+          setActiveSyllable(null);
+          resolve();
+        };
+        audio.onerror = (err) => {
+          console.error(`❌ Error playing ${filepath}:`, err);
+          setActiveSyllable(null);
+          resolve(); // Skip if error
+        };
+        audio.play().catch(reject);
+      });
+    }
+  };
+
+  // --- 🗣️ Play the instructor's full-phrase audio, highlighting syllables ---
+  // as their timestamp (from syllable_timestamps_template.csv) is reached.
+  // Playback starts at the first known timestamp (skipping any silent lead-in
+  // in the recording). Syllables without a filled-in timestamp are simply
+  // never highlighted, but the rest of the audio still plays normally.
+  const playInstructorAudio = (phraseData) =>
+    new Promise((resolve) => {
+      const { settings } = state;
+      const { archivo_audio, syllables } = phraseData;
+      const knownTimes = syllables.filter((s) => s.start !== null);
+      const startAt = knownTimes.length > 0 ? knownTimes[0].start : 0;
+
+      const audio = new Audio(encodeURI(`/instructor-audio/${archivo_audio}`));
+      audio.volume = settings.volume ?? 0.5;
+
+      const pickActiveSyllable = () => {
+        if (knownTimes.length === 0) return null; // no timestamps yet: no animation
+        let current = null;
+        for (const s of knownTimes) {
+          if (audio.currentTime >= s.start) current = s.index;
+          else break;
+        }
+        return current;
+      };
+
+      const handleTimeUpdate = () => setActiveSyllable(pickActiveSyllable());
+
+      const cleanup = () => {
+        audio.removeEventListener("timeupdate", handleTimeUpdate);
+        setActiveSyllable(null);
+      };
+
+      audio.addEventListener("timeupdate", handleTimeUpdate);
+      audio.onended = () => {
+        cleanup();
+        resolve();
+      };
+      audio.onerror = (err) => {
+        console.error(`❌ Error playing instructor audio ${archivo_audio}:`, err);
+        cleanup();
+        resolve();
+      };
+
+      // Wait for duration/seekability before jumping to startAt, then play.
+      audio.addEventListener(
+        "loadedmetadata",
+        () => {
+          let seekTo = startAt;
+          // Guard against a mistyped inicio_segundos landing past the end of
+          // this specific mp3 — seeking there would clamp to the end and fire
+          // "ended" immediately, killing both playback and the highlight.
+          if (Number.isFinite(audio.duration) && seekTo >= audio.duration) {
+            console.warn(
+              `⚠️ Syllable timestamp ${seekTo}s is past the end of ${archivo_audio} ` +
+                `(duration ${audio.duration.toFixed(2)}s). Revisa esa fila del CSV. Reproduciendo desde 0.`
+            );
+            seekTo = 0;
+          }
+          audio.currentTime = seekTo;
+          setActiveSyllable(pickActiveSyllable()); // highlight immediately, don't wait for the first timeupdate tick
+          audio.play().catch(() => {
+            cleanup();
+            resolve();
+          });
+        },
+        { once: true }
+      );
+    });
+
+  // --- 🔁 Repeat syllables with animation ---
   const handleRepeatSound = async () => {
     try {
-      const { level, difficulty, scene, settings } = state;
-      const syllables = text.split("-").map((s) => s.trim()).filter(Boolean);
+      const { level, difficulty, scene } = state;
+      const phraseData = getPhraseData(level, difficulty - 1, scene);
 
-      for (let i = 0; i < syllables.length; i++) {
-        const filename = `lvl${level}_sub${difficulty - 1}_w${scene}_s${i}.mp3`;
-        const filepath = `/audios/${filename}`;
-        const audio = new Audio(filepath);
-        audio.volume = settings.volume ?? 0.5;
-
-        console.log(`🔊 Playing syllable ${i + 1}/${syllables.length}: ${filepath}`);
-
-        // Trigger animation
-        setActiveSyllable(i);
-
-        // Wait for audio to finish
-        await new Promise((resolve, reject) => {
-          audio.onended = () => {
-            setActiveSyllable(null);
-            resolve();
-          };
-          audio.onerror = (err) => {
-            console.error(`❌ Error playing ${filepath}:`, err);
-            setActiveSyllable(null);
-            resolve(); // Skip if error
-          };
-          audio.play().catch(reject);
-        });
+      if (phraseData) {
+        await playInstructorAudio(phraseData);
+      } else {
+        await playLegacySyllables();
       }
 
-      console.log("✅ Finished playing all syllables.");
+      console.log("✅ Finished playing phrase.");
     } catch (error) {
       console.error("❌ Error in handleRepeatSound:", error);
     }
