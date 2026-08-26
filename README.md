@@ -27,6 +27,7 @@ Their conceptual contribution is acknowledged throughout the project and its usa
 
 The **intellectual authors of the original code** (design, structure, logic, and implementation) are:
 
+- **Ramón Alejandro Briseño Martínez**
 - **Rodrigo López Gómez**  
 - **Nahui Metztli Dado Delgadillo**  
 - **Ana Mariem Pérez Chacón**  
