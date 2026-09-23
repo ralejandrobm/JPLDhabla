@@ -1,5 +1,5 @@
 /*
- * © 2025 [Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís]
+ * © 2025 [Ramón Alejandro Briseño Martínez, Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís, Bruno Palacios Cacho, Armando Josua Hermosillo García]
  * Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
  * 
  * Contributors must be credited when using or modifying this file.
@@ -64,8 +64,25 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transform: scale(2) !important;
-  z-index: 3;
+  width: 200px;
+  height: 300px;
+  position: relative;
+  z-index: 200; /* por encima del zIndex dinámico (hasta 100) de .carousel-item, que con overflow: visible puede montarse sobre las flechas */
+}
+
+/* Antes el tamaño se lograba con transform: scale(2), lo que separaba
+   el área "pintada" (post-transform) del área de layout, dando pie a
+   descalces de hover en algunos navegadores/DPI. Ahora se agranda el
+   ícono directamente, sin transform, para que el área visible y la
+   interactiva coincidan siempre en el mismo box. */
+.carousel-arrow .flechas {
+  width: 200px;
+  height: 300px;
+}
+
+.carousel-arrow .arrow-icon {
+  width: 140px;
+  height: 225.48px;
 }
 
 

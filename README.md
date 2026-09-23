@@ -27,11 +27,14 @@ Their conceptual contribution is acknowledged throughout the project and its usa
 
 The **intellectual authors of the original code** (design, structure, logic, and implementation) are:
 
+- **Ramón Alejandro Briseño Martínez**
 - **Rodrigo López Gómez**  
 - **Nahui Metztli Dado Delgadillo**  
 - **Ana Mariem Pérez Chacón**  
 - **Karla Avila Navarro**  
 - **Ana María Guzman Solís**
+- **Bruno Palacios Cacho**
+- **Armando Josua Hermosillo García**
 
 Any use of code, derivative work, or adaptation must credit these authors.
 
@@ -126,7 +129,7 @@ For academic, research, or educational collaboration of the original code:
 ## 💖 Citation Example
 
 > Briseño Martínez, R. A., Rodríguez Muñoz, A. J., López Gómez, R., Dado Delgadillo, N. M., Pérez Chacón, A. M.,  
-> Avila Navarro, K., & Guzman Solís, A. M., Fabian Valensia, H. C., Ortega Bravo, P.,  
+> Avila Navarro, K., Guzman Solís, A. M., Palacios Cacho, B., & Hermosillo García, A. J., Fabian Valensia, H. C., Ortega Bravo, P.,  
 > García Torres, M., Jimenez Zepeda, C., Arreola Munguía, S., Velasco Gómez Llanos, D.,  
 > González Gómez, A. (2025). *Speech Helper App for Kids*.  
 > Licensed under CC BY-NC-SA 4.0.

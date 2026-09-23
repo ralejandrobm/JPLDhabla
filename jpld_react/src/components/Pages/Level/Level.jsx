@@ -1,5 +1,5 @@
 /*
- * © 2025 [Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís]
+ * © 2025 [Ramón Alejandro Briseño Martínez, Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís, Bruno Palacios Cacho, Armando Josua Hermosillo García]
  * Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
  * 
  * Contributors must be credited when using or modifying this file.
@@ -89,56 +89,56 @@ export const Level = () => {
     ],
     1: [
       ["LÁ-PIZ", "MO-CHI-LA", "PE-LO-TA"],
-      ["TEN-GO UN LÁ-PIZ A-MA-RI-LLO.", "LA MO-CHI-LA ES GRAN-DE.", "LA PE-LO-TA RU-E-DA."],
+      ["TEN-GO-UN-LÁ-PIZ-A-MA-RI-LLO.", "LA-MO-CHI-LA-ES-GRAN-DE.", "LA-PE-LO-TA-RU-E-DA."],
       [
-        "EL NI-ÑO U-SA UN LÁ-PIZ A-MA-RI-LLO PA-RA ES-CRI-BIR SU NOM-BRE.",
-        "MI MO-CHI-LA ES-TÁ LLE-NA DE LI-BROS Y CO-LO-RES.",
-        "LA PE-LO-TA RU-E-DA RÁ-PI-DO POR EL CAM-PO Y CA-E EN LA POR-TE-RÍ-A.",
+        "EL-NI-ÑO-U-SA-UN-LÁ-PIZ-A-MA-RI-LLO-PA-RA-ES-CRI-BIR-SU-NOM-BRE.",
+        "MI-MO-CHI-LA-ES-TÁ-LLE-NA-DE-LI-BROS-Y-CO-LO-RES.",
+        "LA-PE-LO-TA-RU-E-DA-RÁ-PI-DO-POR-EL-CAM-PO-Y-CA-E-EN-LA-POR-TE-RÍ-A.",
       ],
     ],
     2: [
       ["MA-NZA-NA", "PAN", "PEZ"],
-      ["QUIE-RO UNA MA-NZA-NA.", "EL PAN ES-TÁ CA-LIEN-TE.", "EL PEZ NA-DA."],
+      ["QUIE-RO-UNA-MA-NZA-NA.", "EL-PAN-ES-TÁ-CA-LIEN-TE.", "EL-PEZ-NA-DA."],
       [
-        "LA NI-ÑA CO-ME UNA MA-NZA-NA RO-JA POR-QUE TIE-NE HAM-BRE.",
-        "EL PAN RE-CIÉN HOR-NEA-DO HUE-LE DE-LI-CIO-SO Y ES-TÁ SUA-VE.",
-        "EL PEZ NA-DA RÁ-PI-DO EN EL MAR MIENTRAS ES-QUI-VA LAS O-LAS.",
+        "LA-NI-ÑA-CO-ME-UNA-MA-NZA-NA-RO-JA-POR-QUE-TIE-NE-HAM-BRE.",
+        "EL-PAN-RE-CIÉN-HOR-NEA-DO-HUE-LE-DE-LI-CIO-SO-Y-ES-TÁ-SUA-VE.",
+        "EL-PEZ-NA-DA-RÁ-PI-DO-EN-EL-MAR-MIEN-TRAS-ES-QUI-VA-LAS-O-LAS.",
       ],
     ],
     3: [
       ["MA-MÁ", "CA-MA", "PA-PÁ"],
-      ["MA-MÁ CO-CI-NA.", "LA CA-MA ES-TÁ TEN-DI-DA.", "MI PA-PÁ DUER-ME."],
+      ["MA-MÁ-CO-CI-NA.", "LA-CA-MA-ES-TÁ-TEN-DI-DA.", "MI-PA-PÁ-DUER-ME."],
       [
-        "MI MA-MÁ CO-CI-NA AR-ROZ MIENTRAS YO LA A-YU-DO.",
-        "LA CA-MA TIE-NE UNA CO-BI-JA RO-JA Y MU-CHOS CO-JI-NES.",
-        "MI PA-PÁ DUER-ME TRAN-QUI-LO EN SU CUAR-TO.",
+        "MI-MA-MÁ-CO-CI-NA-AR-ROZ-MIEN-TRAS-YO-LA-A-YU-DO.",
+        "LA-CA-MA-TIE-NE-UNA-CO-BI-JA-RO-JA-Y-MU-CHOS-CO-JI-NES.",
+        "MI-PA-PÁ-DUER-ME-TRAN-QUI-LO-EN-SU-CUAR-TO.",
       ],
     ],
     4: [
       ["MA-NOS", "CE-PI-LLO", "PI-ES"],
-      ["LÁ-VA-TE LAS MA-NOS.", "U-SO EL CE-PI-LLO DE DIEN-TES.", "MIS PIES COR-REN."],
+      ["LÁ-VA-TE-LAS-MA-NOS.", "U-SO-EL-CE-PI-LLO-DE-DIEN-TES.", "MIS-PIES-COR-REN."],
       [
-        "DE-BE-MOS LA-VAR-NOS LAS MA-NOS AN-TES DE CO-MER PA-RA NO EN-FER-MAR-NOS.",
-        "CA-DA MA-ÑA-NA U-SO MI CE-PI-LLO DE DIEN-TES CON PAS-TA DE MEN-TA.",
-        "MIS PIES CO-RREN RÁ-PI-DO CUAN-DO JU-E-GO EN EL PAR-QUE.",
+        "DE-BE-MOS-LA-VAR-NOS-LAS-MA-NOS-AN-TES-DE-CO-MER-PA-RA-NO-EN-FER-MAR-NOS.",
+        "CA-DA-MA-ÑA-NA-U-SO-MI-CE-PI-LLO-DE-DIEN-TES-CON-PAS-TA-DE-MEN-TA.",
+        "MIS-PIES-CO-RREN-RÁ-PI-DO-CUAN-DO-JU-E-GO-EN-EL-PAR-QUE.",
       ],
     ],
     5: [
       ["A-VIÓN", "BI-CI-CLE-TA", "BAR-CO"],
-      ["EL A-VIÓN VUE-LA.", "LA BI-CI-CLE-TA ES A-ZUL.", "EL BAR-CO NA-VE-GA."],
+      ["EL-A-VIÓN-VUE-LA.", "LA-BI-CI-CLE-TA-ES-A-ZUL.", "EL-BAR-CO-NA-VE-GA."],
       [
-        "EL A-VIÓN DES-PE-GA DES-DE LA PIS-TA Y SU-BE EN-TRE LAS NU-BES.",
-        "EL NI-ÑO MON-TA SU BI-CI-CLE-TA EN EL PAR-QUE CA-DA TAR-DE.",
-        "EL BAR-CO NA-VE-GA LEN-TO POR EL MAR HAS-TA LLE-GAR A PUER-TO.",
+        "EL-A-VIÓN-DES-PE-GA-DES-DE-LA-PIS-TA-Y-SU-BE-EN-TRE-LAS-NU-BES.",
+        "EL-NI-ÑO-MON-TA-SU-BI-CI-CLE-TA-EN-EL-PAR-QUE-CA-DA-TAR-DE.",
+        "EL-BAR-CO-NA-VE-GA-LEN-TO-POR-EL-MAR-HAS-TA-LLE-GAR-A-PUER-TO.",
       ],
     ],
     6: [
       ["PE-LO-TA", "CO-LUM-PIO", "RE-SBA-LA-DI-LLA"],
-      ["LAN-ZA LA PE-LO-TA.", "ME SU-BO AL CO-LUM-PIO.", "BA-JA POR LA RE-SBA-LA-DI-LLA."],
+      ["LAN-ZA-LA-PE-LO-TA.", "ME-SU-BO-AL-CO-LUM-PIO.", "BA-JA-POR-LA-RE-SBA-LA-DI-LLA."],
       [
-        "JU-GA-MOS CON LA PE-LO-TA Y CO-RRE-MOS TO-DOS JUN-TOS.",
-        "EL NI-ÑO SU-BE AL CO-LUM-PIO Y SE BA-LAN-CE-A MUY AL-TO.",
-        "LA NI-ÑA BA-JA POR LA RE-SBA-LA-DI-LLA Y RÍ-E CON A-LE-GRÍ-A.",
+        "JU-GA-MOS-CON-LA-PE-LO-TA-Y-CO-RRE-MOS-TO-DOS-JUN-TOS.",
+        "EL-NI-ÑO-SU-BE-AL-CO-LUM-PIO-Y-SE-BA-LAN-CE-A-MUY-AL-TO.",
+        "LA-NI-ÑA-BA-JA-POR-LA-RE-SBA-LA-DI-LLA-Y-RÍ-E-CON-A-LE-GRÍ-A.",
       ],
     ],
   };
@@ -218,7 +218,10 @@ export const Level = () => {
   return (
 
   <div className={`background-anim-container ${animateIntro ? "start" : ""}`}>
-      <BackgroundSVG className="background-svg background-pan-zoom" />
+      <BackgroundSVG
+        className="background-svg background-pan-zoom"
+        preserveAspectRatio="xMidYMid slice"
+      />
 
       <SpeechResultPopup
       isVisible={showPopup}

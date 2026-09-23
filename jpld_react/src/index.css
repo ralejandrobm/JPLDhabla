@@ -1,5 +1,5 @@
 /*
- * © 2025 [Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís]
+ * © 2025 [Ramón Alejandro Briseño Martínez, Hannah Carolina Fabian Valensia, Paola Ortega Bravo, Martín García Torres, Carlos Jimenez Zepeda, Santiago Arreola Munguía, Demián Velasco Gómez Llanos, Andrés González Gómez, Rodrigo López Gómez, Nahui Metztli Dado Delgadillo, Ana Mariem Pérez Chacón, Karla Avila Navarro, Ana María Guzman Solís, Bruno Palacios Cacho, Armando Josua Hermosillo García]
  * Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
  * 
  * Contributors must be credited when using or modifying this file.
@@ -130,6 +130,7 @@ p, span, div, label, button {
   color: var(--accent-color); /* set the color */
   z-index: 1;   /* make sure it’s above background but below modals */
   transition: transform 0.3s ease;
+  pointer-events: none; /* es puramente decorativa: a ciertas alturas de ventana llega a montarse sobre botones reales y les robaba el click/hover */
 }
 
 .orange-icon2 {
@@ -141,4 +142,5 @@ p, span, div, label, button {
   color: var(--accent-color-2); /* set the color */
   z-index: 2;   /* make sure it’s above background but below modals */
   transition: transform 0.3s ease;
+  pointer-events: none; /* ídem: decorativa, no debe interceptar clicks */
 }
